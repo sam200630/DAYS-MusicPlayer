@@ -1,27 +1,19 @@
 package edu.unisabana.dyas.patterns.utils;
 
 public class AdvancedAudioPlayerAdapter implements AudioPlayer {
-    private AdvancedAudioPlayer advancedAudioPlayer;
-
-    public AdvancedAudioPlayerAdapter() {
-        this.advancedAudioPlayer = new AdvancedAudioPlayer();
-    }
-
     @Override
     public void play(String audioType, String fileName) {
-        if (audioType.equalsIgnoreCase("mp3")) {
-            System.out.println("Reproduciendo archivo MP3: " + fileName);
-        } else if (audioType.equalsIgnoreCase("mp4")) {
-            advancedAudioPlayer.playMp4(fileName);
+        if (audioType.equalsIgnoreCase("mp4")) {
+            System.out.println("Reproduciendo archivo MP4: " + fileName);
         } else if (audioType.equalsIgnoreCase("vlc")) {
-            advancedAudioPlayer.playVlc(fileName);
+            System.out.println("Reproduciendo archivo VLC: " + fileName);
         } else {
-            System.out.println("Formato no soportado: " + audioType);
+            System.out.println("Formato no soportado en el adaptador: " + audioType);
         }
     }
 
     @Override
     public void stop() {
-        advancedAudioPlayer.stop();
+        System.out.println("Deteniendo reproducción desde el adaptador");
     }
 }
